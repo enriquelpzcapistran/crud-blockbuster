@@ -46,7 +46,7 @@ export default new Vuex.Store({
     }
   },
   getters:{
-    allMovies: state=>{
+    allPeliculas: state=>{
       return state.movies
     },
     allGeneros: state =>{

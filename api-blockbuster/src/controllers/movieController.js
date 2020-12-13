@@ -32,24 +32,24 @@ function searchMovie(req,res){
 }
 function addMovie(req,res){
     if(connection){
-        const pelicula = req.body;
-        if(!pelicula.titulo){
+        const Pelicula = req.body;
+        if(!Pelicula.titulo){
             return res.status(400).send({error:true, msg:"Información Obligatoria"})
         }
-        if(!pelicula.director){
+        if(!Pelicula.director){
             return res.status(400).send({error:true, msg:"Información Obligatoria"})
         }
-        if(!pelicula.anio){
+        if(!Pelicula.anio){
             return res.status(400).send({error:true, msg:"Información Obligatoria"})
         }
-        if(pelicula.anio && pelicula.anio.length !==4){
+        if(Pelicula.anio && Pelicula.Anio.length !==4){
             return res.status(400).send({error:true, msg:"Información Obligatoria(4 digitos)"})
         }
-        if(!pelicula.genero){
+        if(!Pelicula.genero){
             return res.status(400).send({error:true, msg:"Información Obligatoria"})
         }
-        let sql = 'INSERT INTO Oeliculas SET ?';
-        connection.query(sql,[pelicula],(err,rows)=>{
+        let sql = 'INSERT INTO Peliculas SET ?';
+        connection.query(sql,[Pelicula],(err,rows)=>{
             if(err){
                 res.json(err);
             } else {
@@ -60,10 +60,10 @@ function addMovie(req,res){
 }
 function modifyMovie(req, res){
     if(connection){
-        const { id } = req.params;
-        const pelicula = req.body;
+        const { ID } = req.params;
+        const Pelicula = req.body;
         let sql = 'UPDATE Peliculas SET ? WHERE ID = ?';
-        connection.query(sql, [pelicula,id],(err,rows)=> {
+        connection.query(sql, [Pelicula,ID],(err,rows)=> {
             if(err){
                 res.json(err);
             } else{
