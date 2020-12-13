@@ -1,9 +1,23 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Inicio</router-link> |
-      <router-link to="/movie">Peliculas</router-link> |
-      <router-link to="/genero">Generos</router-link>
+      <div class="container">
+        <div class="row">
+          <div class="col -4">
+      <router-link class="display-3"  to="/">Inicio</router-link> 
+          
+        </div>
+        <div class="col-4">
+      <router-link class="display-4"  to="/movie">Gestión de Películas</router-link> 
+          
+        </div>
+        <div class="col-4">
+      <router-link class="display-4 info" to="/genero">Gestión de Generos</router-link>
+          
+        </div>
+        </div>
+        
+      </div>
       <notifications position="bottom right"/>
     </div>
     <router-view class="container mt-4"/>
@@ -29,6 +43,7 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  
+  color: #07b83c;
 }
 </style>

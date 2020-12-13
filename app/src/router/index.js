@@ -15,8 +15,8 @@ const routes = [
     component: Home
   },
   {
-    path: '/movie',
-    name: 'Peliculas',
+    path: '/movies',
+    name: 'Movies',
     component: Movies
   },
   {
@@ -26,12 +26,12 @@ const routes = [
   },
   {
     path: '/add_genre',
-    name: 'AgregarGenero',
+    name: 'AddGenre',
     component: AddGenre
   },
   {
     path: '/add_movie',
-    name: 'AgregarPelicula',
+    name: 'AddMovie',
     component: AddMovie
   }
 

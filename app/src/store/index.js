@@ -5,12 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    movies:[],
+    peliculas:[],
     genre:[],
   },
   mutations: {
-    SET_PELICULAS(state,movies){
-      state.movies = movies
+    SET_PELICULAS(state,peliculas){
+      state.peliculas = peliculas
     },
     SET_GENEROS(state, genre){
       state.genre = genre
@@ -30,17 +30,17 @@ export default new Vuex.Store({
       })
     },
     agregarPelicula({commit},{params,onComplete,onError}){
-      axios.post('http://localhost:3000/movie',params)
+      axios.post('http://localhost:3000/Movies',params)
       .then(onComplete)
       .then(onError)
     },
     agregarGenero({commit},{params,onComplete,onError}){
-      axios.post('http://localhost:3000/genre',params)
+      axios.post('http://localhost:3000/Genre',params)
       .then(onComplete)
       .then(onError)
     },
     eliminarGenero({commit},{id,onComplete,onError}){
-      axios.delete(`http://localhost:3000/genero/${id}`)
+      axios.delete(`http://localhost:3000/Genre/${id}`)
       .then(onComplete)
       .catch(onError)
 
@@ -48,7 +48,7 @@ export default new Vuex.Store({
   },
   getters:{
     allPeliculas: state=>{
-      return state.movies
+      return state.peliculas
     },
     allGeneros: state =>{
       return state.genre

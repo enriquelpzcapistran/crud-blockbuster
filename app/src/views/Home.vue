@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Inicio</h1>
+    <h2 class="display-1">Bienvenido al CRUD-Blockbuster!</h2>
   </div>
 </template>
 

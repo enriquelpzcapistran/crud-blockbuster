@@ -1,7 +1,7 @@
 <template>
   <div>
       <h1>Peliculas</h1>
-      <b-button variant="primary" class="float-right mb-3" to="/AddGenre">Agregar Pelicula</b-button>
+      <b-button variant="info" class="float-right mb-3" to="/AddGenre.vue">Agregar Pelicula</b-button>
       <Tabla :fields="campos" :items="allPeliculas"/>
   </div>
 </template>
