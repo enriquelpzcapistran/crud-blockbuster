@@ -1,9 +1,12 @@
 <template>
   <div>
-    <b-table striped bordered :items="items" :fields="fields">
+    {{hola}}
+    <b-table striped bordered :items="itemssss" :fields="fields">
+
       <template #cell(actions)="data">
         <slot name="actions" :item="data"></slot>
       </template>
+      
     </b-table>
   </div>
 </template>
@@ -12,7 +15,10 @@
 export default {
   name: 'Content',
   props: {
-    items: {
+    hola: {
+      type: String
+    },
+    itemssss: {
       type: Array,
     },
     fields: Array,

@@ -1,15 +1,15 @@
 <template>
   <div>
       <h1>Agregar un genero</h1>
-      <b-form @submit.prevent="addGenre">
+      <b-form @submit.prevent="saveGenre">
           <Input
-          v-model="genero.genero"
-          label="Nombre del genero"
-          id="genero"
-          placeholder="Ingrese el nuevo genero"
-          mensajeError="El nombre del genero es obligatorio"
-          :error="erroresValidacion && !validacionGenero"
-          class="mb-2"
+            v-model="genero.Genero"
+            label="Nombre del genero"
+            id="genero"
+            placeholder="Ingrese el nuevo genero"
+            mensajeError="El nombre del genero es obligatorio"
+            :error="erroresValidacion && !validacionGenero"
+            class="mb-2"
           />
           <b-button type="submit" variant="success" class="float-right mt-3">Guardar</b-button>
       </b-form>
@@ -18,16 +18,16 @@
 
 <script>
 import Input from '../components/Input'
-import {mapActions} from 'vuex'
+import { mapActions } from 'vuex'
 export default {
-    name: 'addGenre',
+    name: 'AddGenre',
     components:{
       Input
     },
     data(){
       return{
-        genre:{
-          genre: ''
+        genero:{
+          Genero: ''
         },
         erroresValidacion: false
       }
@@ -35,22 +35,22 @@ export default {
     computed:{
         validacionGenero(){
             return (
-                this.genre.genre !== undefined &&
-                this.genre.genre.trim() !== ''
+                this.genero.Genero !== undefined &&
+                this.genero.Genero.trim() !== ''
             )
         }
     },
        methods:{
-        ...mapActions(['addGenre']),
+        ...mapActions(['addGenero']),
         saveGenre(){
             if(this.validacionGenero){
              this.erroresValidacion = false
-             this.addGenre({
-                 params: this.genre,
+             this.addGenero({
+                 params: this.genero,
                  onComplete: (response)=>{
                      this.$notify({
                         type:'success',
-                        title: response.data.mensaje
+                        title: response.data.msg
                     });
                     this.$router.push({
                         name: 'Genre'
@@ -59,7 +59,7 @@ export default {
                  onError:(error)=>{
                    this.$notify({
                         type:'error',
-                        title: error.response.data.mensaje
+                        title: error.response.data.msg
                     });  
                  }
              })   

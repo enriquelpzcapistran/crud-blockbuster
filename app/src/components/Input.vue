@@ -1,7 +1,7 @@
 <template>
   <div>
-      <label :for="ID">{{label}}</label>
-      <input :id="ID"
+      <label :for="id">{{label}}</label>
+      <input :id="id"
              class="form-control"
              :type="type"
              :maxlength="maxlength"

@@ -11,7 +11,7 @@
               >Gestión de Películas</router-link>
           </div>
           <div class="col-4">
-            <router-link class="display-4 info" to="/genre"
+            <router-link class="display-4 info" to="/genres"
               >Gestión de Generos</router-link>
           </div>
         </div>

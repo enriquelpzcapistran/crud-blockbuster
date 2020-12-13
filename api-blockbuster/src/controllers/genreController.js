@@ -32,7 +32,7 @@ function getGenre(req, res) {
 function addGenre(req, res) {
     if (connection) {
         const genero = req.body;
-        if (!genero.genero) {
+        if (!genero.Genero) {
             return res.status(400).send({ error: true, msg: "Información Obligatoria" })
         }
         let sql = 'insert into generos set ?';
@@ -48,7 +48,7 @@ function addGenre(req, res) {
 function deleteGenre(req, res) {
     if (connection) {
         const { id } = req.params;
-        let sql = 'DELETE FROM Generos WHERE = ?';
+        let sql = 'DELETE FROM Generos WHERE ID = ?';
         connection.query(sql, [id], (err, rows) => {
             if (err) {
                 res.json(err);

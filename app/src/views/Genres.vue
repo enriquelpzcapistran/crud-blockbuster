@@ -1,14 +1,14 @@
 <template>
   <div>
       <h1>Generos</h1>
-      <b-button variant="primary" class="float-right mb-3" to="/AddGenre">Agregar Genero</b-button>
-      <Content :fields="campos" :items="allGenre">
+      <b-button variant="primary" class="float-right mb-3" to="/add_genre">Agregar Genero</b-button>
+      <Content :fields="campos" :itemssss="allGeneros">
           <template slot="actions" slot-scope="{ item }">
-      <b-button size="sm" variant="danger" 
-      @click="onEliminar(item)">
-        Eliminar
-      </b-button>
-    </template>
+                <b-button size="sm" variant="danger" 
+                @click="onEliminar(item)">
+                    Eliminar
+                </b-button>
+        </template>
       </Content>
   </div>
 </template>
@@ -23,17 +23,19 @@ export default {
     },
      data(){
         return{
+            Nose: "Hola a todos",
             campos:[
-                {key: 'id',label:'Clave'},
-                {key: 'genero',label:'Genero'},
+                {key: 'ID',label:'Clave'},
+                {key: 'Genero',label:'Genero'},
                 {key: 'actions',label:'Acciones'}
 
             ]
         }
     },
      methods:{
-        ...mapActions(['setGenre', 'deleteGenre']),
+        ...mapActions(['setGenero', 'deleteGenre']),
         onEliminar(item){
+            console.log(item);
             this.$bvModal.msgBoxConfirm('Esta opción es de forma permanente.', {
           title: '¿Seguro de eliminar el genero?',
           buttonSize: 'sm',
@@ -45,18 +47,18 @@ export default {
           .then(value => {
             if(value){
                  this.deleteGenre({
-                id: item.item.id,
+                id: item.item.ID,
                 onComplete:(response)=>{
                     this.$notify({
                         type: 'success',
-                        title: response.data.mensaje
+                        title: response.data.msg
                     })
                     this.setGenre();
                 },
                 onError:(error)=>{
                     this.$notify({
                         type: 'error',
-                        title: error.response.data.mensaje
+                        title: error.response.data.msg
                     })
                 }
             })
@@ -66,10 +68,10 @@ export default {
         }
     },
     created(){
-        this.setGenre();
+        this.setGenero();
     },
     computed:{
-        ...mapGetters(['allGenres'])
+        ...mapGetters(['allGeneros'])
     }
 
 

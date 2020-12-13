@@ -24,22 +24,22 @@ export default new Vuex.Store({
       })
     },
     setGenero({commit}){
-      axios.get('http://localhost:3000/Genre')
+      axios.get('http://localhost:3000/Genres')
       .then(response=>{
         commit('SET_GENEROS',response.data)
       })
     },
-    addMovie({commit},{params,onComplete,onError}){
+    addMovie(obj,{params,onComplete,onError}){
       axios.post('http://localhost:3000/Movies',params)
       .then(onComplete)
       .then(onError)
     },
-    addGenre({commit},{params,onComplete,onError}){
+    addGenero(obj,{params,onComplete,onError}){
       axios.post('http://localhost:3000/Genres',params)
       .then(onComplete)
       .then(onError)
     },
-    deleteGenre({commit},{id,onComplete,onError}){
+    deleteGenre(obj,{id,onComplete,onError}){
       axios.delete(`http://localhost:3000/Genres/${id}`)
       .then(onComplete)
       .catch(onError)
