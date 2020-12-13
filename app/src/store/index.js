@@ -24,22 +24,22 @@ export default new Vuex.Store({
       })
     },
     setGenero({commit}){
-      axios.get('http://localhost:3000/genero')
+      axios.get('http://localhost:3000/Genre')
       .then(response=>{
         commit('SET_GENEROS',response.data)
       })
     },
-    agregarPelicula({commit},{params,onComplete,onError}){
+    addMovie({commit},{params,onComplete,onError}){
       axios.post('http://localhost:3000/Movies',params)
       .then(onComplete)
       .then(onError)
     },
-    agregarGenero({commit},{params,onComplete,onError}){
+    addGenre({commit},{params,onComplete,onError}){
       axios.post('http://localhost:3000/Genre',params)
       .then(onComplete)
       .then(onError)
     },
-    eliminarGenero({commit},{id,onComplete,onError}){
+    deleteGenre({commit},{id,onComplete,onError}){
       axios.delete(`http://localhost:3000/Genre/${id}`)
       .then(onComplete)
       .catch(onError)
@@ -48,7 +48,7 @@ export default new Vuex.Store({
   },
   getters:{
     allPeliculas: state=>{
-      return state.peliculas
+      return state.movies
     },
     allGeneros: state =>{
       return state.genre

@@ -21,7 +21,7 @@ const routes = [
   },
   {
     path: '/genres',
-    name: 'Generos',
+    name: 'Genre',
     component: Genres
   },
   {
