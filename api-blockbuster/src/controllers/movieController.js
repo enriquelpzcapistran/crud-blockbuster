@@ -1,4 +1,4 @@
-const connection = require('../config/conmection');
+const connection = require('../config/connection');
 
 function showMovies(req,res)
 {

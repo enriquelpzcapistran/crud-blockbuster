@@ -30,12 +30,12 @@ export default new Vuex.Store({
       })
     },
     agregarPelicula({commit},{params,onComplete,onError}){
-      axios.post('http://localhost:3000/pelicula',params)
+      axios.post('http://localhost:3000/movie',params)
       .then(onComplete)
       .then(onError)
     },
     agregarGenero({commit},{params,onComplete,onError}){
-      axios.post('http://localhost:3000/genero',params)
+      axios.post('http://localhost:3000/genre',params)
       .then(onComplete)
       .then(onError)
     },
