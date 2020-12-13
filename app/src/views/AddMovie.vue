@@ -90,12 +90,12 @@ export default {
         }
     },
     methods:{
-        ...mapActions(['agregarPelicula']),
-        guardarPelicula(){
+        ...mapActions(['addMovie']),
+        addMovie(){
             if(this.validacionTitulo && this.validacionDirector 
             && this.validacionAnio && this.validacionGenero){
              this.erroresValidacion = false
-             this.agregarPelicula({
+             this.addMovie({
                  params: this.pelicula,
                  onComplete: (response)=>{
                      this.$notify({
@@ -103,7 +103,7 @@ export default {
                         title: response.data.mensaje
                     });
                     this.$router.push({
-                        name: 'Peliculas'
+                        name: 'Movies'
                     })
                  },
                  onError:(error)=>{

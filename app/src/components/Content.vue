@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "Content",
+  name: 'Content',
   props: {
     items: {
       type: Array,

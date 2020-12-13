@@ -1,18 +1,18 @@
 <template>
   <div>
       <h1>Peliculas</h1>
-      <b-button variant="info" class="float-right mb-3" to="/AddGenre.vue">Agregar Pelicula</b-button>
-      <Tabla :fields="campos" :items="allPeliculas"/>
+      <b-button variant="info" class="float-right mb-3" to="/AddMovie.vue">Agregar Pelicula</b-button>
+      <Content :fields="campos" :items="allPeliculas"/>
   </div>
 </template>
 
 <script>
 import{mapActions,mapGetters} from 'vuex'
-import Tabla from '../components/Input.vue'
+import Content from '../components/Content.vue'
 export default {
-    name: 'Peliculas',
+    name: 'Movies',
     components:{
-        Tabla
+        Content
     },
     data(){
         return{
@@ -28,13 +28,13 @@ export default {
         }
     },
     methods:{
-        ...mapActions(['setPelicula'])
+        ...mapActions(['setMovie'])
     },
     created(){
-        this.setPelicula();
+        this.setMovie();
     },
     computed:{
-        ...mapGetters(['allPeliculas'])
+        ...mapGetters(['allMovies'])
     }
 
 }

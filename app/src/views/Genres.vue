@@ -2,24 +2,24 @@
   <div>
       <h1>Generos</h1>
       <b-button variant="primary" class="float-right mb-3" to="/AddGenre">Agregar Genero</b-button>
-      <Tabla :fields="campos" :items="allGeneros">
+      <Content :fields="campos" :items="allGenre">
           <template slot="actions" slot-scope="{ item }">
       <b-button size="sm" variant="danger" 
       @click="onEliminar(item)">
         Eliminar
       </b-button>
     </template>
-      </Tabla>
+      </Content>
   </div>
 </template>
 
 <script>
 import{mapActions,mapGetters} from 'vuex'
-import Tabla from '../components/Input.vue'
+import Content from '../components/Content.vue'
 export default {
-    name: 'Generos',
+    name: 'Genres',
     components:{
-        Tabla
+        Content
     },
      data(){
         return{
@@ -32,7 +32,7 @@ export default {
         }
     },
      methods:{
-        ...mapActions(['setGenero', 'deleteGenre']),
+        ...mapActions(['setGenre', 'deleteGenre']),
         onEliminar(item){
             this.$bvModal.msgBoxConfirm('Esta opción es de forma permanente.', {
           title: '¿Seguro de eliminar el genero?',
@@ -44,14 +44,14 @@ export default {
         })
           .then(value => {
             if(value){
-                 this.eliminarGenero({
+                 this.deleteGenre({
                 id: item.item.id,
                 onComplete:(response)=>{
                     this.$notify({
                         type: 'success',
                         title: response.data.mensaje
                     })
-                    this.setGenero();
+                    this.setGenre();
                 },
                 onError:(error)=>{
                     this.$notify({
@@ -63,18 +63,13 @@ export default {
 
             }
           })
-          .catch(err => {
-            // An error occurred
-          })
-           
-
         }
     },
     created(){
-        this.setGenero();
+        this.setGenre();
     },
     computed:{
-        ...mapGetters(['allGeneros'])
+        ...mapGetters(['allGenres'])
     }
 
 

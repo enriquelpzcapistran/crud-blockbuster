@@ -20,14 +20,14 @@
 import Input from '../components/Input'
 import {mapActions} from 'vuex'
 export default {
-    name: 'AgregarGenero',
+    name: 'addGenre',
     components:{
       Input
     },
     data(){
       return{
-        genero:{
-          genero: ''
+        genre:{
+          genre: ''
         },
         erroresValidacion: false
       }
@@ -35,25 +35,25 @@ export default {
     computed:{
         validacionGenero(){
             return (
-                this.genero.genero !== undefined &&
-                this.genero.genero.trim() !== ''
+                this.genre.genre !== undefined &&
+                this.genre.genre.trim() !== ''
             )
         }
     },
        methods:{
-        ...mapActions(['agregarGenero']),
+        ...mapActions(['addGenre']),
         saveGenre(){
             if(this.validacionGenero){
              this.erroresValidacion = false
              this.addGenre({
-                 params: this.genero,
+                 params: this.genre,
                  onComplete: (response)=>{
                      this.$notify({
                         type:'success',
                         title: response.data.mensaje
                     });
                     this.$router.push({
-                        name: 'Generos'
+                        name: 'Genre'
                     })
                  },
                  onError:(error)=>{

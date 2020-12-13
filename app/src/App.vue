@@ -4,23 +4,21 @@
       <div class="container">
         <div class="row">
           <div class="col -4">
-      <router-link class="display-3"  to="/">Inicio</router-link> 
-          
+            <router-link class="display-3" to="/">Inicio</router-link>
+          </div>
+          <div class="col-4">
+            <router-link class="display-4" to="/movies"
+              >Gestión de Películas</router-link>
+          </div>
+          <div class="col-4">
+            <router-link class="display-4 info" to="/genre"
+              >Gestión de Generos</router-link>
+          </div>
         </div>
-        <div class="col-4">
-      <router-link class="display-4"  to="/movie">Gestión de Películas</router-link> 
-          
-        </div>
-        <div class="col-4">
-      <router-link class="display-4 info" to="/genero">Gestión de Generos</router-link>
-          
-        </div>
-        </div>
-        
       </div>
-      <notifications position="bottom right"/>
+      <notifications position="bottom right" />
     </div>
-    <router-view class="container mt-4"/>
+    <router-view class="container mt-4" />
   </div>
 </template>
 
@@ -43,7 +41,6 @@
 }
 
 #nav a.router-link-exact-active {
-  
   color: #07b83c;
 }
 </style>

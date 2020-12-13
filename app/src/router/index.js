@@ -34,10 +34,7 @@ const routes = [
     name: 'AddMovie',
     component: AddMovie
   }
-
-
 ]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
