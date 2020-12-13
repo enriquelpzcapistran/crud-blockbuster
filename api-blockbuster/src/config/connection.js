@@ -3,8 +3,8 @@ const objectConnection = {
     "host": "127.0.0.1",
     "port": 3306,
     "user":"root",
-    "password": "Co123451",
-    "database": "crud_node"
+    "password": "root",
+    "database": "bdblockbuster"
 }
 const myConn = mysql.createConnection(objectConnection);
 myConn.connect((err)=>{

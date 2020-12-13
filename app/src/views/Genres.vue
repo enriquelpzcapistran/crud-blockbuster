@@ -23,7 +23,6 @@ export default {
     },
      data(){
         return{
-            Nose: "Hola a todos",
             campos:[
                 {key: 'ID',label:'Clave'},
                 {key: 'Genero',label:'Genero'},

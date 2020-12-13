@@ -23,7 +23,7 @@ function getGenre(req, res) {
                 let msg = "";
                 if (Genero === undefined || genero.length === 0)
                     msg = "Genero no encontrado"
-                res.json({ data: genero, msg: msg })
+                res.json({ data: Genero, msg: msg })
             }
 
         })

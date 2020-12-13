@@ -48,7 +48,7 @@ function addMovie(req,res){
         if(!pelicula.genero){
             return res.status(400).send({error:true, msg:"Información Obligatoria"})
         }
-        let sql = 'INSERT INTO Oeliculas SET ?';
+        let sql = 'INSERT INTO Peliculas SET ?';
         connection.query(sql,[pelicula],(err,rows)=>{
             if(err){
                 res.json(err);

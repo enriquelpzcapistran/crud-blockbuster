@@ -3,36 +3,36 @@
       <h1>Agregar una pelicula</h1>
       <b-form @submit.prevent="addMovie">
           <Input
-          v-model="pelicula.titulo"
+          v-model="pelicula.Titulo"
           label="Titulo"
-          id="titulo"
+          id="Titulo"
           placeholder="Ingrese el titulo de la pelicula"
           mensajeError="El titulo es obligatorio"
           maxlength="120"
           :error="erroresValidacion && !validacionTitulo"
           class="mb-2"/>
            <Input
-           v-model="pelicula.director"
+           v-model="pelicula.Director"
           label="Director"
-          id="director"
+          id="Director"
           maxlength="100"
           placeholder="Ingrese el nombre del director"
           mensajeError="El autor es obligatorio"
           :error="erroresValidacion && !validacionDirector"
           class="mb-2"/>
            <Input
-           v-model="pelicula.anio"
-          label="Año"
-          id="anio"
+           v-model="pelicula.Anio"
+          label="Anio"
+          id="Anio"
           maxlength="4"
           placeholder="Ingrese el año de lanzamiento"
           mensajeError="El año es obligatorio"
           :error="erroresValidacion && !validacionAnio"
           class="mb-2"/>
           <Input
-        v-model="pelicula.genero"
+        v-model="pelicula.Genero"
           label="Genero"
-          id="genero"
+          id="Genero"
           placeholder="Ingrese el genero de la pelicula"
           mensajeError="El genero es obligatorio"
           :error="erroresValidacion && !validacionGenero"
@@ -54,10 +54,10 @@ export default {
     data(){
         return{
             pelicula:{
-                titulo: '',
-                director: '',
-                anio: '',
-                genre: ''
+                Titulo: '',
+                Director: '',
+                Anio: '',
+                Genero: ''
             },
             erroresValidacion: false
         }
@@ -65,27 +65,27 @@ export default {
     computed:{
         validacionTitulo(){
             return(
-                this.pelicula.titulo !== undefined &&
-                this.pelicula.titulo.trim() !== ''
+                this.pelicula.Titulo !== undefined &&
+                this.pelicula.Titulo.trim() !== ''
             )
         },
         validacionDirector(){
             return(
-                this.pelicula.director !== undefined &&
-                this.pelicula.director.trim() !== ''
+                this.pelicula.Director !== undefined &&
+                this.pelicula.Director.trim() !== ''
             )
         },
         validacionAnio(){
             return(
-                this.pelicula.anio !== undefined &&
-                this.pelicula.anio.trim() !== '' &&
-                this.pelicula.anio.length == 4
+                this.pelicula.Anio !== undefined &&
+                this.pelicula.Anio.trim() !== '' &&
+                this.pelicula.Anio.length == 4
             )
         },
         validacionGenero(){
             return(
-                this.pelicula.genero !== undefined &&
-                this.pelicula.genero.trim() !== ''
+                this.pelicula.Genero !== undefined &&
+                this.pelicula.Genero.trim() !== ''
             )
         }
     },

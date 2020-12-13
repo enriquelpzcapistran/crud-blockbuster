@@ -26,12 +26,12 @@ const routes = [
   },
   {
     path: '/add_genre',
-    name: 'AddGenre',
+    name: 'add_genre',
     component: AddGenre
   },
   {
     path: '/add_movie',
-    name: 'AddMovie',
+    name: 'add_movie',
     component: AddMovie
   }
 ]
