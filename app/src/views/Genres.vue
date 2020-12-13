@@ -2,7 +2,7 @@
   <div>
       <h1>Generos</h1>
       <b-button variant="primary" class="float-right mb-3" to="/add_genre">Agregar Genero</b-button>
-      <Content :fields="campos" :itemssss="allGeneros">
+      <Content :fields="campos" :items="allGeneros">
           <template slot="actions" slot-scope="{ item }">
                 <b-button size="sm" variant="danger" 
                 @click="onEliminar(item)">

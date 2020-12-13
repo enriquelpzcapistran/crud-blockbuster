@@ -1,7 +1,7 @@
 <template>
   <div>
       <h1>Agregar una pelicula</h1>
-      <b-form @submit.prevent="addMovie">
+      <b-form @submit.prevent="saveMovie">
           <Input
           v-model="pelicula.Titulo"
           label="Titulo"
@@ -22,8 +22,13 @@
           class="mb-2"/>
            <Input
            v-model="pelicula.Anio"
+<<<<<<< HEAD
           label="Anio"
           id="Anio"
+=======
+          label="Año"
+          id="anio"
+>>>>>>> main
           maxlength="4"
           placeholder="Ingrese el año de lanzamiento"
           mensajeError="El año es obligatorio"
@@ -44,12 +49,12 @@
 </template>
 
 <script>
-import Input from '../components/Input'
+import Content from '../components/Input'
 import {mapActions} from 'vuex'
 export default {
     name: 'addMovie',
     components:{
-        Input
+        Content
     },
     data(){
         return{
@@ -57,7 +62,11 @@ export default {
                 Titulo: '',
                 Director: '',
                 Anio: '',
+<<<<<<< HEAD
                 Genero: ''
+=======
+                Genero: '',
+>>>>>>> main
             },
             erroresValidacion: false
         }
@@ -91,7 +100,7 @@ export default {
     },
     methods:{
         ...mapActions(['addMovie']),
-        addMovie(){
+        guardarPelicula(){
             if(this.validacionTitulo && this.validacionDirector 
             && this.validacionAnio && this.validacionGenero){
              this.erroresValidacion = false
@@ -103,7 +112,7 @@ export default {
                         title: response.data.mensaje
                     });
                     this.$router.push({
-                        name: 'Movies'
+                        name: 'Peliculas'
                     })
                  },
                  onError:(error)=>{
